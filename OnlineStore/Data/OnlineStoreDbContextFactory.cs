@@ -16,7 +16,6 @@ namespace OnlineStore.Data
 
             var build = new DbContextOptionsBuilder<OnlineStoreDbContext>();
             build.UseSqlServer(configuration.GetConnectionString("MSSqlServer"));
-            //build.UseSqlServer("Server=(localdb)\\mssqllocaldb;Database=FoodShop.Dev;Trusted_Connection=True;MultipleActiveResultSets=true");
             return new OnlineStoreDbContext(build.Options);
 
         }

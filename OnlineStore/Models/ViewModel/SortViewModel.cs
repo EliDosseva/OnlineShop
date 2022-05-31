@@ -27,7 +27,7 @@ namespace OnlineStore.Models.ViewModel
         {
             NameSort = sortOrder == SortState.NameAsc ? SortState.NameDesc : SortState.NameAsc;
             RateSort = sortOrder == SortState.RateAsc ? SortState.RateDesc : SortState.RateAsc;
-            PriceSort = sortOrder == SortState.PriceAsc ? SortState.PriceDesc : SortState.CategoryAsc;
+            PriceSort = sortOrder == SortState.PriceAsc ? SortState.PriceDesc : SortState.PriceAsc;
             CategorySort = sortOrder == SortState.CategoryAsc ? SortState.CategoryDesc : SortState.CategoryAsc;
             Current = sortOrder;
         }

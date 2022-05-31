@@ -21,9 +21,9 @@ namespace OnlineStore.Models.ViewModel
         public string City { get; set; }
         [Required]
         public string Street { get; set; }
-        [Required]
+        
         public string House { get; set; }
-        [Required]
+        
         public string Apartment { get; set; }
         public SelectList Offices { get; set; }
         public SelectList Options{ get; set; }

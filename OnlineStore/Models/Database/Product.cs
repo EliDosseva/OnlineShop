@@ -26,15 +26,9 @@ namespace OnlineStore.Models.Database
         public ICollection<Rate> Rates { get; set; }
         public ICollection<Comment> Comments { get; set; }
         public ICollection<PurchaseProduct> PurchaseProducts { get; set; }
+        
+        public string Name => Producer + " " + Model;
 
-        //Legacy code, dont touch this
-        public string Name
-        {
-            get
-            {
-                return Producer + " " + Model;
-            }
-        }
         public float AverageRate
         {
             get

@@ -32,7 +32,7 @@
                         <a class="btn btn-outline-dark count" href="/api/cart/add/@i.ProductId?count=#&redirect=@Context.Request.Path">Save</a>
                     </td>
                     <td>
-                        @(i.Product.Price * i.Count) $
+                        $@(i.Product.Price * i.Count)
                     </td>
                     <td>
                         <a href="/api/cart/remove/@i.ProductId?&redirect=@Context.Request.Path">Remove</a>
@@ -46,7 +46,7 @@
     <hr/>
     <div class="container" >
         <h3 class="align-content-lg-end" >
-            Price: @Model.TotalPrice $
+            Price: $@Model.TotalPrice
         </h3>
     </div>
     <div class="container" >

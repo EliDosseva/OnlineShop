@@ -5,14 +5,14 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1>UserPurchases</h1>
+<h1>Your purchases</h1>
 
 <div>
     <hr />
     @foreach(var i in Model.Purchases)
     {
         <div class="row">
-            <h3>Purchase from @i.CreationTime date</h3>
+            <h3>Purchase from @i.CreationTime</h3>
             <div class="row" style="margin-left: 5px;">
                 <table class="table">
                     <thead>

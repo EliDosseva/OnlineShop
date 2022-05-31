@@ -50,8 +50,7 @@ namespace OnlineStore.Controllers
                         .Get(x => x.Email == User.Identity.Name, includeProperties: "Role")
                         .FirstOrDefault();
                     inpurchase = purchases
-                        .Where(x => x.Purchase.UserId == user.Id)
-                        .Count() != 0;
+                        .Count(x => x.Purchase.UserId == user.Id) != 0;
                     incart = unit
                         .ShoppingCartRepository
                         .Get(x => x.ProductId == product.Id && x.UserId == user.Id && x.Count != 0)
@@ -103,13 +102,13 @@ namespace OnlineStore.Controllers
                 model.ImageName = product.Image?.Path;
 
                 var categories = unit.CategoryRepository.Get().ToList();
-                var sel = categories.Where(x => x.Id == product.CategoryId).FirstOrDefault();
-                var sellist = new SelectList(categories, "Id", "Name", sel);
+                var sel = categories.FirstOrDefault(x => x.Id == product.CategoryId);
+                var selectList = new SelectList(categories, "Id", "Name", sel);
 
-                var commenabled = product.CommentsEnabled == true ? "Yes" : "No";
+                var commEnabled = product.CommentsEnabled == true ? "Yes" : "No";
 
-                model.CommentsEnabled = new SelectList(new List<string>() { "Yes", "No" }, commenabled);
-                model.Categories = sellist;
+                model.CommentsEnabled = new SelectList(new List<string>() { "Yes", "No" }, commEnabled);
+                model.Categories = selectList;
             }
             else
             {
@@ -164,8 +163,7 @@ namespace OnlineStore.Controllers
                     int id = 7;
                     if (edit.Image != null)
                     {
-                        //edit.Image = edit.Image;
-
+                        
                         await SaveImage(edit.Image);
                         unit.ImageRepository.Insert(new Image() { Path = edit.Image.FileName });
                         unit.Save();
